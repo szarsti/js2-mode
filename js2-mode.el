@@ -6351,7 +6351,6 @@ of a simple name.  Called before EXPR has a parent node."
   (concat "^\\s-*\\*+\\s-*\\(@\\(?:"
           (regexp-opt
            '("enum"
-             "extends"
              "field"
              "id"
              "implements"
@@ -6361,7 +6360,8 @@ of a simple name.  Called before EXPR has a parent node."
              "return"
              "returns"
              "throw"
-             "throws"))
+             "throws"
+             "type"))
           "\\)\\)\\s-*\\({[^}]+}\\)?")
   "Matches jsdoc tags with optional type.")
 
@@ -6377,9 +6377,12 @@ of a simple name.  Called before EXPR has a parent node."
              "default"
              "define"
              "exception"
+             "exports"
+             "extends"
              "function"
              "member"
              "memberOf"
+             "method"
              "name"
              "namespace"
              "property"
@@ -6387,7 +6390,6 @@ of a simple name.  Called before EXPR has a parent node."
              "suppress"
              "this"
              "throws"
-             "type"
              "version"))
           "\\)\\)\\s-+\\([^ \t]+\\)")
   "Matches jsdoc tags with a single argument.")
@@ -6395,7 +6397,8 @@ of a simple name.  Called before EXPR has a parent node."
 (defconst js2-jsdoc-empty-tag-regexp
   (concat "^\\s-*\\*+\\s-*\\(@\\(?:"
           (regexp-opt
-           '("addon"
+           '("abstract"
+             "addon"
              "author"
              "class"
              "const"
@@ -6419,6 +6422,7 @@ of a simple name.  Called before EXPR has a parent node."
              "inner"
              "interface"
              "license"
+             "method"
              "noalias"
              "noshadow"
              "notypecheck"
